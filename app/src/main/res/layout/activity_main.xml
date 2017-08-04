@@ -28,10 +28,22 @@
             android:layout_height="wrap_content"
             android:text="HttpURLClient POST请求" />
 
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OKhttp GET请求" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OKhttp POST请求" />
+
         <TextView
             android:id="@+id/tip"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:maxLines="10"
             android:scrollbars="vertical" />
     </LinearLayout>
