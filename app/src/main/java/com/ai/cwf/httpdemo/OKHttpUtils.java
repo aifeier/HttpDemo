@@ -29,6 +29,7 @@ public class OKHttpUtils {
 
     public OKHttpUtils(Context app) {
         okHttpClient = new OkHttpClient.Builder()
+                .addNetworkInterceptor(new CacheInterceptor())
                 .cache(new Cache(app.getCacheDir().getAbsoluteFile(), 1024 * 1024 * 10))
                 .connectTimeout(10, TimeUnit.MINUTES)
                 .readTimeout(10, TimeUnit.MINUTES)

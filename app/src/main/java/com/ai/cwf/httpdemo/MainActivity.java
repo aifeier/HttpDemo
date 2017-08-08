@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        Log.d("response", null != response.cacheResponse() ? "cache--" : "newwork--" + response.toString());
-                        final String ss = (null != response.cacheResponse() ? "cache--" : "newwork--")
+                        Log.d("response", null != response.cacheResponse() ? "cache--" : "network--" + response.toString());
+                        final String ss = (null != response.cacheResponse() ? "cache--" : "network--")
                                 + response.toString() + "\n" + response.body().string();
                         UIHandler.post(new Runnable() {
                             @Override
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 RequestBody requestBody = new FormBody.Builder()
                         .add("username", "me")
                         .build();
-                Request request1 = new Request.Builder().url("http://www.baidu.com").post(requestBody).build();
+                Request request1 = new Request.Builder().url(Math.random() * 10 > 5 ? "http://www.baidu.com/search" : "http://www.baidu.com").post(requestBody).build();
                 Call call1 = OKHttpUtils.getInstance(this).getOkHttpClient().newCall(request1);
                 call1.enqueue(new Callback() {
                     @Override
@@ -149,8 +149,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        Log.d("response", null != response.cacheResponse() ? "cache--" : "newwork--" + response.toString());
-                        final String ss = (null != response.cacheResponse() ? "cache--" : "newwork--")
+                        Log.d("response", null != response.cacheResponse() ? "cache--" : "network--" + response.toString());
+                        final String ss = (null != response.cacheResponse() ? "cache--" : "network--")
                                 + response.toString() + "\n" + response.body().string();
                         UIHandler.post(new Runnable() {
                             @Override
